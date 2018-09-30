@@ -1,0 +1,88 @@
+//
+// MENU
+// App main menu
+//
+
+.main-menu {
+	position: fixed;
+	top: 50%;
+	z-index: 10;
+
+	@include media-breakpoint-up(lg) {
+		right: $desktop-spacing-extra;
+	}
+
+	@include media-breakpoint-down(md) {
+		display: none;
+	}
+
+	// Default is hidden, make it appear after landing
+	transform: translate(100%, -100%);
+	opacity: 0;
+	transition:
+		500ms transform ease-in-out,
+		500ms opacity ease-in-out;
+
+	&.js-is-visible {
+		transform: translate(100%, -50%);
+		opacity: 1;
+	}
+
+	// Prevent click when hidden
+	&:not(.js-is-visible) {
+
+		.main-menu__link {
+			cursor: default;
+			pointer-events: none;
+		}
+	}
+}
+
+.main-menu__list {
+	@extend %list-reset;
+}
+
+.main-menu__list-item {
+
+	&:not(:last-child) {
+		margin-bottom: 0.9375rem;
+	}
+}
+
+.main-menu__link {
+	display: block;
+	width: 0.9375rem;
+	height: 0.9375rem;
+	background-color: transparent;
+	border: 1px solid $link;
+	border-radius: 50%;
+	transition:
+		200ms background-color ease-out,
+		200ms border-color ease-out;
+
+	&:hover,
+	&:focus {
+		background-color: $link;
+	}
+
+	.active > & {
+		background-color: $link;
+		animation: pulse 1.5s;
+	}
+}
+
+
+@keyframes pulse {
+
+	0% {
+		box-shadow: 0 0 0 0 rgba($secondary, 0.8);
+	}
+
+	70% {
+		box-shadow: 0 0 0 10px rgba($secondary, 0);
+	}
+
+	100% {
+		box-shadow: 0 0 0 0 rgba($secondary, 0);
+	}
+}

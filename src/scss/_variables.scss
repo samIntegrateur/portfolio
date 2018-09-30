@@ -1,0 +1,282 @@
+//
+// VARIABLES
+// Complete list in ./node_modules/bootstrap/scss/_variables.scss
+//
+
+// COLORS
+// ----------------------------------------------------------------------------
+
+// Definitions
+// ------------------------------------------------
+
+$black:         #000;
+$white:         #fff;
+
+// Brand
+// ---------------------------
+$orange:        #ff5308;
+$turquoise:     #06ecaf;
+
+// Grays
+// ---------------------------
+$gray-100:      #f9f9f9;
+$gray-200:      #f1f1f1;
+$gray-300:      #e5e5e5;
+$gray-400:      #888;
+$gray-500:      #555;
+$gray-600:      #444;
+$gray-700:      #333;
+$gray-800:      #222;
+
+
+
+// Global Attribution
+// ------------------------------------------------
+
+// Brand
+// ---------------------------
+$primary:       $orange;
+$secondary:     $turquoise;
+$link: 					$turquoise;
+
+$brand:(
+	'primary': 		$primary,
+	'secondary': 	$secondary,
+	'link': 			$link,
+	'black': 			$black,
+	'white': 			$white,
+);
+
+$link-hover: 		darken($link, 10%);
+$border-color: 	$white;
+
+// Grays
+// ---------------------------
+$grays:(
+	'100': $gray-100,
+	'200': $gray-200,
+	'300': $gray-300,
+	'400': $gray-400,
+	'500': $gray-500,
+	'600': $gray-600,
+	'700': $gray-700,
+	'800': $gray-800
+);
+
+
+// Html
+// ------------------------------------------------
+$bg-base:     $black;
+$color-base:	$white;
+
+
+// Color classes generation
+// ------------------------------------------------
+
+//  ex : output color-a :
+//
+//  .color-a {
+//    color: 'value';
+//  }
+//
+//  .bg-color-a {
+//    background-color: 'value';
+//    (+ color:#fff if dark)
+//  }
+
+@each $key, $value in $brand {
+	$color-lightness: lightness($value) < 70%;
+
+	.#{$key} {
+		color: $value;
+	}
+
+	.bg-#{$key} {
+		background-color: $value;
+
+		@if $color-lightness {
+
+			&,
+			&:hover,
+			&:focus {
+				color: #fff;
+			}
+		}
+	}
+}
+
+
+// TYPOGRAPHY
+// Indications in px give an idea but are likely to be wrong since it depends on html font-size
+// ----------------------------------------------------------------------------
+$font-family-base:          			'Quicksand', Arial, Helvetica, sans-serif;
+$font-weight-base: 								400;
+$font-weight-light: 							300;
+$font-weight-bold: 								500;
+$font-weight-bolder: 							700;
+
+// Root font sizes, the only one in px
+// ------------------------------------------------
+$root-font-size-sm:               15px;
+$root-font-size-md:               15px;
+$root-font-size-lg:               16px;
+
+
+// Bases
+// ------------------------------------------------
+$font-size-base:                  1rem;      // 16px
+$font-size-lg:                    1.15rem;   // 18px
+$font-size-sm:                    0.85rem;   // 14px
+
+$line-height-base:                1.5;
+$line-height-sm:                  1.25;
+
+// Titles
+// ------------------------------------------------
+
+// Title 1
+// ---------------------------
+$title1-font-size-xs:             2.4rem;
+$title1-alt-font-size-xs:         0.92rem;
+$title1-font-size-sm:             3.3rem;
+$title1-alt-font-size-sm:         1.3rem;
+$title1-font-size:                5.17rem;
+$title1-alt-font-size:            1.99rem;
+$title1-font-weight:            	$font-weight-light;
+$title1-alt-font-weight:          $font-weight-base;
+
+// Title 2
+// ---------------------------
+$title2-font-size-sm:             1.4rem;
+$title2-font-size:                1.8rem;
+$title2-font-weight:            	$font-weight-base;
+
+// Title 3
+// ---------------------------
+$title3-font-size-sm:             1.3rem;
+$title3-font-size:                1.625rem;
+$title3-font-weight:            	$font-weight-base;
+
+// Title 4
+// ---------------------------
+$title4-font-size-sm:             1.3rem;
+$title4-font-size:                2.3rem;
+$title4-font-weight:            	$font-weight-light;
+
+
+// SPACING
+// ----------------------------------------------------------------------------
+$spacer:                          1rem;
+
+// Add custom variables to handle spaces (see responsive spacing mixin)
+// Based on $spacer to keep consistency
+
+// Tablet variables
+// Used for xs/sm/md
+// Indications in px give an idea but are likely to be wrong since it depends on html font-size
+// ------------------------------------------------
+$tablet-spacing:                    $spacer;          // 16px
+$tablet-spacing-small:              $spacer * 0.75;   // 12px
+$tablet-spacing-extra-small:        $spacer * 0.3;    // 4.8px
+$tablet-spacing-big:                $spacer * 1.3;    // 20.8px
+$tablet-spacing-extra:              $spacer * 1.8;    // 28.8px
+
+// Desktop variables
+// Used for lg/xl
+// ------------------------------------------------
+$desktop-spacing:                    $spacer * 1.3;   // 22.1px
+$desktop-spacing-small:              $spacer;         // 17px
+$desktop-spacing-extra-small:        $spacer * 0.3;   // 5.1px
+$desktop-spacing-big:                $spacer * 2;     // 34px
+$desktop-spacing-extra:              $spacer * 2.8;   // 47.59px
+
+// Create list to use responsive spacing mixin
+$spacings: (
+	'tablet-spacing':                 $tablet-spacing,
+	'tablet-spacing-small':           $tablet-spacing-small,
+	'tablet-spacing-extra-small':     $tablet-spacing-extra-small,
+	'tablet-spacing-big':             $tablet-spacing-big,
+	'tablet-spacing-extra':           $tablet-spacing-extra,
+
+	'desktop-spacing':                $desktop-spacing,
+	'desktop-spacing-small':          $desktop-spacing-small,
+	'desktop-spacing-extra-small':    $desktop-spacing-extra-small,
+	'desktop-spacing-big':            $desktop-spacing-big,
+	'desktop-spacing-extra':          $desktop-spacing-extra,
+);
+
+
+// GRID
+// ----------------------------------------------------------------------------
+
+// Grid breakpoints
+// ------------------------------------------------
+$grid-breakpoints: (
+	xs: 	0,
+	sm: 	400px,
+	md: 	760px,
+	lg: 	992px,
+	xl: 	1200px,
+	xxl: 	1500px,
+	xxxl: 1600px
+);
+
+// Vertical breakpoints
+// ------------------------------------------------
+$vertical-breakpoints: (
+	xs:		0,
+	sm:		480px,
+	md:		600px,
+	lg:		700px,
+	xl:		800px,
+	xxl:	900px
+);
+
+$fullpage-vertical-breakpoint: 670px;
+
+// Grid containers
+// For fixed width 'container', but we often use 'container-fluid'
+// ------------------------------------------------
+$container-max-widths: (
+	sm: 	100%,
+	md: 	100%,
+	lg: 	980px,
+	xl: 	1180px,
+	xxl:	1400px,
+	xxxl:	1550px
+);
+
+// Grid columns
+// ------------------------------------------------
+$grid-columns: 12;
+
+$grid-gutter-width-base:      $tablet-spacing-extra;
+$grid-gutter-width-big:       $desktop-spacing-extra;
+
+// Define which gutter width for each breakpoint
+$grid-gutter-widths: (
+	xs: 	$grid-gutter-width-base,
+	sm: 	$grid-gutter-width-base,
+	md: 	$grid-gutter-width-base,
+	lg: 	$grid-gutter-width-big,
+	xl: 	$grid-gutter-width-big,
+	xxl: 	$grid-gutter-width-big,
+	xxxl: $grid-gutter-width-big
+);
+
+
+// BUTTONS
+// ----------------------------------------------------------------------------
+$input-btn-padding-x:       0.75rem;
+$input-btn-padding-y:       0.5rem;
+$input-btn-padding-y-sm:    0.35rem;
+$btn-border-radius:         0;
+$btn-border-radius-sm:      0;
+$btn-border-radius-lg:      0;
+$btn-transition:            color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+
+
+// PROFILE
+// ----------------------------------------------------------------------------
+$profile-btn-size-sm: 2.8rem;
+$profile-btn-size: 3.125rem;

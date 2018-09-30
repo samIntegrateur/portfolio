@@ -1,0 +1,392 @@
+//
+// PROJECTS
+// Cards specific addon
+//
+
+// COMMONS
+// ----------------------------------------------------------------------------
+.project,
+.infos {
+	margin: auto;
+
+	@include media-breakpoint-up(md) {
+		padding-top: 7rem;
+	}
+
+	@media (min-width: map_get($grid-breakpoints, 'xxl')) and (min-height: map_get($vertical-breakpoints, 'xxl')) {
+		padding-top: 8rem;
+	}
+
+	// For screens large but small, limit width
+	@media (min-width: map_get($grid-breakpoints, 'xxl')) and (max-height: map_get($vertical-breakpoints, 'xxl')) {
+		max-width: 1250px;
+	}
+
+	@media (min-width: map_get($grid-breakpoints, 'xxl')) and (max-height: map_get($vertical-breakpoints, 'xxl')) {
+		max-width: 1300px;
+	}
+}
+
+.project__content {
+
+	@include media-breakpoint-up(md) {
+		display: flex;
+		align-items: flex-end;
+		// Fix vertical align in relation to below offset
+		margin-top: -4%;
+	}
+}
+
+.project__figure,
+.project__desc {
+	flex-grow: 0;
+}
+
+// Project figure
+// ------------------------------------------------
+.project__figure {
+
+	@include media-breakpoint-up(md) {
+		width: 62%;
+	}
+
+	@include media-breakpoint-up(xl) {
+		width: 66%;
+	}
+
+	@include media-breakpoint-up(xxl) {
+		width: 70%;
+	}
+}
+
+// Image
+// ---------------------------
+.project__figure-figure {
+	margin: auto;
+}
+
+
+// Animations when section is coming
+@keyframes coming-down {
+	from { top: 30px; }
+	to { top: 0; }
+}
+
+@keyframes coming-down-sm {
+	from { top: 20px; }
+	to { top: 0; }
+}
+
+@keyframes coming-up {
+	from { top: -30px; }
+	to { top: 0; }
+}
+
+@keyframes coming-up-sm {
+	from { top: -20px; }
+	to { top: 0; }
+}
+
+
+.project__figure-img {
+
+	// trick to center img larger than container
+	text-align: center;
+	position: relative;
+	top: 50%;
+	right: 50%;
+	width: 110%;
+	margin-left: -10%;
+
+	img {
+		display: inline-block;
+		max-width: none;
+		width: 100%;
+		transform: translate(50%, -50%);
+		position: relative;
+
+		// We add classes with one page plugin when changing slide
+		.js-is-coming-down & {
+			animation: coming-down 700ms ease-out;
+
+			// When plugin is disabled, it adds this class, transition is not handled rightly then
+			// (because scroll becomes manual/native)
+			.fp-responsive & {
+				animation: none;
+			}
+		}
+
+		.js-is-coming-up & {
+			animation: coming-up 700ms ease-out;
+
+			.fp-responsive & {
+				animation: none;
+			}
+		}
+
+	}
+}
+
+
+// Project desc
+// ------------------------------------------------
+.project__desc {
+	position: relative;
+	z-index: 1;
+
+	@include media-breakpoint-up(md) {
+		width: 38%;
+	}
+
+	@include media-breakpoint-up(xl) {
+		width: 34%;
+	}
+
+	@include media-breakpoint-up(xxl) {
+		width: 30%;
+	}
+}
+
+// Level added to use aspect ratio trick
+.project__desc-frame {
+
+	@include media-breakpoint-up(md) {
+		position: relative;
+		height: 0;
+		padding-top: 88%;
+	}
+
+	@include media-breakpoint-up(lg) {
+		position: relative;
+		height: 0;
+		padding-top: 84%;
+	}
+
+	@include media-breakpoint-up(xl) {
+		// 1.25 ratio
+		padding-top: 80%;
+	}
+}
+
+.project__desc-content {
+
+	@extend %aspect-ratio-item;
+
+	font-size: 0.9rem;
+
+	@include media-breakpoint-up(xxl) {
+		font-size: 1rem;
+	}
+
+	@include media-breakpoint-down(sm) {
+		position: static;
+	}
+
+	.js-is-coming-down & {
+		animation: coming-down-sm 700ms ease-out;
+
+		.fp-responsive & {
+			animation: none;
+		}
+	}
+
+	.js-is-coming-up & {
+		animation: coming-up-sm 700ms ease-out;
+
+		.fp-responsive & {
+			animation: none;
+		}
+	}
+}
+
+.project__link {
+	font-size: 1rem;
+
+	@include media-breakpoint-up(md) {
+		position: absolute;
+		right: $tablet-spacing;
+		bottom: $tablet-spacing;
+	}
+
+	@include media-breakpoint-up(lg) {
+		right: $desktop-spacing;
+		bottom: $desktop-spacing;
+	}
+}
+
+// Project title
+// ---------------------------
+.project__title {
+	background-color: $primary;
+	color: $white;
+	padding: $tablet-spacing;
+	position: relative;
+
+	&:not(:first-child) {
+		margin-top: 0;
+	}
+
+	&:not(:last-child) {
+		margin-bottom: 0;
+	}
+
+	&:after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		display: block;
+		width: 2.5rem;
+		border-bottom: 1px solid $white;
+	}
+
+	@include media-breakpoint-up(md) {
+		background-color: transparent;
+		color: $white;
+
+		// Place it above desc
+		position: absolute;
+		bottom: 100%;
+		left: 0;
+		padding: calc(#{($tablet-spacing-big * 2)} - 2px);
+
+		&:after {
+			display: none;
+		}
+	}
+
+	// We can't use responsive spacing with this operation
+	@include media-breakpoint-up(lg) {
+		padding: calc(#{($desktop-spacing-big * 2)} - 2px);
+	}
+
+	span {
+		position: relative;
+
+		.js-is-coming-down & {
+			animation: coming-down-sm 700ms ease-out;
+
+			.fp-responsive & {
+				animation: none;
+			}
+		}
+
+		.js-is-coming-up & {
+			animation: coming-up-sm 700ms ease-out;
+
+			.fp-responsive & {
+				animation: none;
+			}
+		}
+	}
+}
+
+// LAYOUT
+// ----------------------------------------------------------------------------
+
+// Project left
+// ------------------------------------------------
+.project--left {
+
+	// Fix width and centering in relation to below offset
+	.project__content {
+		@include media-breakpoint-up(md) {
+			margin-right: -5.75%;
+		}
+	}
+
+	.project__title {
+		@include media-breakpoint-up(md) {
+			margin-left: 16%;
+		}
+
+		@include media-breakpoint-up(xl) {
+			margin-left: 18%;
+		}
+	}
+
+	.project__desc {
+		@include media-breakpoint-up(md) {
+			transform: translate(-14.3%, 15%);
+		}
+
+		@include media-breakpoint-up(xxl) {
+			transform: translate(-18%, 15%);
+		}
+
+		@media (min-width: map_get($grid-breakpoints, 'md')) and (min-height: map_get($vertical-breakpoints, 'xl')) {
+			transform: translate(-14.3%, 30%);
+		}
+
+		@media (min-width: map_get($grid-breakpoints, 'xxl')) and (min-height: map_get($vertical-breakpoints, 'xl')) {
+			transform: translate(-18%, 30%);
+		}
+	}
+}
+
+// Project right
+// ------------------------------------------------
+.project--right {
+
+	.project__content {
+		@include media-breakpoint-up(md) {
+			margin-left: -5.75%;
+		}
+	}
+
+	.project__title {
+		@include media-breakpoint-up(md) {
+			margin-right: 16%;
+			text-align: right;
+		}
+
+		@include media-breakpoint-up(xl) {
+			margin-right: 18%;
+		}
+	}
+
+	.project__desc {
+		@include media-breakpoint-up(md) {
+			order: -1;
+			transform: translate(16%, 15%);
+		}
+
+		@include media-breakpoint-up(xl) {
+			transform: translate(18%, 15%);
+		}
+
+		@media (min-width: map_get($grid-breakpoints, 'md')) and (min-height: map_get($vertical-breakpoints, 'xl')) {
+			transform: translate(16%, 30%);
+		}
+
+		@media (min-width: map_get($grid-breakpoints, 'xl')) and (min-height: map_get($vertical-breakpoints, 'xl')) {
+			transform: translate(18%, 30%);
+		}
+	}
+}
+
+// LAST SECTIONS : INFOS
+// ----------------------------------------------------------------------------
+.section--infos {
+
+	.fp-tableCell { /* stylelint-disable-line */
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	.infos {
+		margin: 0;
+	}
+
+	.footer {
+		@include responsive-spacing((padding: small extra));
+		border-top: 1px solid #fff;
+
+		@include media-breakpoint-down(sm) {
+			padding-left: 1rem;
+			padding-right: 1rem;
+		}
+	}
+
+}

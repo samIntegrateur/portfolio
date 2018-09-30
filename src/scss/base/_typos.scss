@@ -1,0 +1,132 @@
+//
+// TYPOGRAPHY STYLES
+//
+
+// TITLES
+// ----------------------------------------------------------------------------
+
+// Common
+// ------------------------------------------------
+.title1,
+.title2,
+.title3,
+.title4 {
+
+	line-height: $line-height-sm;
+
+	&:not(:first-child) {
+		@include responsive-spacing((margin-top: normal));
+	}
+
+	&:not(:last-child) {
+		@include responsive-spacing((margin-bottom: normal));
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+// Title 1
+// ------------------------------------------------
+
+// Got trouble with line-height if font-size on title1
+.title1__main {
+	font-size: $title1-font-size-xs;
+	font-weight: $title1-font-weight;
+
+
+	@include media-breakpoint-up(sm) {
+		font-size: $title1-font-size-sm;
+	}
+
+	@include media-breakpoint-up(md) {
+		font-size: $title1-font-size;
+	}
+
+	@media (min-width: map_get($grid-breakpoints, 'sm')) and (max-height: map_get($vertical-breakpoints, 'lg')) {
+		font-size: $title1-font-size-sm;
+	}
+
+	@media (max-height: map_get($vertical-breakpoints, 'md')) {
+		font-size: $title1-font-size-xs;
+	}
+}
+
+.title1__alt {
+	font-size: $title1-alt-font-size-xs;
+	font-weight: 500;
+	color: $primary;
+
+
+	@include media-breakpoint-up(sm) {
+		font-size: $title1-alt-font-size-sm;
+	}
+
+	@include media-breakpoint-up(md) {
+		font-size: $title1-alt-font-size;
+	}
+
+	@media (min-width: map_get($grid-breakpoints, 'sm')) and (max-height: map_get($vertical-breakpoints, 'lg')) {
+		font-size: $title1-alt-font-size-sm;
+	}
+
+	@media (max-height: map_get($vertical-breakpoints, 'md')) {
+		font-size: $title1-alt-font-size-xs;
+	}
+
+}
+
+// Title 2
+// ------------------------------------------------
+.title2 {
+	font-size: $title2-font-size-sm;
+	font-weight: $title2-font-weight;
+
+	@media (min-width: map_get($grid-breakpoints, 'lg')) and (min-height: map_get($vertical-breakpoints, 'xl')) {
+		font-size: $title2-font-size;
+	}
+}
+
+.title2__alt {
+	color: $primary;
+}
+
+// Title 3
+// ------------------------------------------------
+.title3 {
+	font-size: $title3-font-size-sm;
+	font-weight: $title3-font-weight;
+
+	@media (min-width: map_get($grid-breakpoints, 'lg')) and (min-height: map_get($vertical-breakpoints, 'xl')) {
+		font-size: $title3-font-size;
+	}
+}
+
+.title3__alt {
+	color: $primary;
+}
+
+
+// Title 4
+// ------------------------------------------------
+.title4 {
+	font-size: $title4-font-size-sm;
+	font-weight: $title4-font-weight;
+	position: relative;
+	@include responsive-spacing((padding-bottom: normal));
+
+	&:after {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		content: '';
+		display: block;
+		width: 4rem;
+		border-top: 2px solid $primary;
+	}
+
+	@media (min-width: map_get($grid-breakpoints, 'lg')) and (min-height: map_get($vertical-breakpoints, 'xl')) {
+		font-size: $title4-font-size;
+	}
+}

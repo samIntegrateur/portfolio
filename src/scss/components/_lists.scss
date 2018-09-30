@@ -1,0 +1,29 @@
+//
+// LISTS
+//
+
+// LIST KEY VALUE
+// ----------------------------------------------------------------------------
+.list-key-value {
+	@extend %list-reset;
+	@extend %part;
+}
+
+.list-key-value__item {
+
+	&:not(:last-child) {
+		@include responsive-spacing((margin-bottom: small));
+	}
+}
+
+.list-key-value__key {
+	display: block;
+	text-transform: uppercase;
+	font-weight: $font-weight-bold;
+	font-size: 0.9rem;
+}
+
+.list-key-value__value {
+	display: block;
+	line-height: $line-height-sm;
+}

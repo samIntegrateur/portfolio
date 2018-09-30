@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>Samuel Desbos, Intégrateur Web, Développeur Front-End</title>
+	<meta name="description" content="Porfolio de Samuel Desbos, Intégrateur Web, Développeur Front-End">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="dist/bundle.css">
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#000000">
+	
+</head>
+<body>
+
+	<header class="main-header" id="main-header">
+		<div class="container-fluid main-header__container">
+			<div class="main-header__brand">
+				<figure class="main-header__logo">
+					<a href="#landing"><img src="dist/img/logo-samuel-desbos.svg" alt="logo Samuel Desbos"></a>
+				</figure>
+				<h1 class="main-header__title title3">
+					<span class="title3__main">Samuel DESBOS,</span>
+					<span class="title3__alt">
+						<span>Intégrateur Web,</span> <span>Développeur Front-End</span>
+					</span>
+				</h1>
+			</div>
+
+			<div class="main-header__profile">
+				<button type="button" class="main-header__profile-button" title="Voir le profil">
+					<svg>
+						<use xlink:href="#icone-profil"></use>
+					</svg>
+				</button>
+			</div>
+
+		</div>
+	</header>
+
+	<section class="profile" id="profile">
+		<div class="profile__container">
+			<button type="button" class="profile__close-button" title="Fermer le profil">
+				<svg>
+					<use xlink:href="#icone-close"></use>
+				</svg>
+			</button>
+			<div class="profile__content">
+				<figure class="profile__figure">
+					<img src="dist/img/portrait-samuel-desbos.png" alt="Portrait Samuel desbos">
+				</figure>
+				<div class="profile__text">
+
+					<div class="part-big">
+						<h2 class="title4 profile__title">En quelques mots</h2>
+						<p>
+							J’ai commencé à travailler dans le “digital” en 2010 en tant qu’intégrateur HTML.
+							Depuis, beaucoup de choses ont évoluées : CSS3, HTML5, Responsive Web-design, pré-processeurs CSS, flex module, grid module, etc.
+							Les nouveautés viennent régulièrement bousculer nos acquis, ce qui fait  tout l’intérêt de ce secteur.
+						</p>
+						<p>
+							Pour mon plus grand bonheur, le terme “intégrateur” a des contours assez mal définis&nbsp;: parfois
+							un peu UI Designer, d’autres plutôt développeur “front”, j'aime m'adapter au contexte dans lequel je travaille.
+						</p>
+						<p>
+							J’évolue progressivement vers un profil de Développeur Front-End&nbsp;:
+							le Javascript moderne ainsi que les frameworks Angular, React suscitent principalement mon intérêt pour avoir un profil plus complet.
+						</p>
+					</div>
+
+					<div class="part-big">
+						<h2 class="title4 profile__title">Compétences</h2>
+						<ul class="profile__list-skills">
+							<li class="profile__list-skills-item">
+								<span class="profile__list-skills-item-name">
+									HTML5 - CSS1/3
+								</span>
+								<span class="profile__list-skills-item-value">
+									<span class="profile__list-skills-item-figure profile__list-skills-item-figure-5"></span>
+								</span>
+							</li>
+							<li class="profile__list-skills-item">
+								<span class="profile__list-skills-item-name">
+									JavaScript ES5/6+
+								</span>
+								<span class="profile__list-skills-item-value">
+									<span class="profile__list-skills-item-figure profile__list-skills-item-figure-2"></span>
+								</span>
+							</li>
+							<li class="profile__list-skills-item">
+								<span class="profile__list-skills-item-name">
+									Angular 2+
+								</span>
+								<span class="profile__list-skills-item-value">
+									<span class="profile__list-skills-item-figure profile__list-skills-item-figure-2"></span>
+								</span>
+							</li>
+							<li class="profile__list-skills-item">
+								<span class="profile__list-skills-item-name">
+									React 4+
+								</span>
+								<span class="profile__list-skills-item-value">
+									<span class="profile__list-skills-item-figure profile__list-skills-item-figure-1"></span>
+								</span>
+							</li>
+							<li class="profile__list-skills-item">
+								<span class="profile__list-skills-item-name">
+									jQuery 1/3
+								</span>
+								<span class="profile__list-skills-item-value">
+									<span class="profile__list-skills-item-figure profile__list-skills-item-figure-3"></span>
+								</span>
+							</li>
+						</ul>
+					</div>
+					<div class="part-big">
+						<a class="link" href="https://www.linkedin.com/in/samuel-desbos-b19967133/" title="Aller sur le site (lien externe)">
+							<svg class="link__icon link__icon--big">
+								<use xlink:href="#icone-linkedin"></use>
+							</svg>
+							<span class="link__text">Lien Linkedin</span>
+						</a>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<nav class="main-menu" id="main-menu">
+		<ul class="main-menu__list">
+			<li class="main-menu__list-item active" data-menuanchor="landing">
+				<a class="main-menu__link" href="#landing" title="Aller à l'introduction">
+					<span class="sr-only">Introduction</span>
+				</a>
+			</li>
+			<li class="main-menu__list-item" data-menuanchor="section1">
+				<a class="main-menu__link" href="#section1" title="Aller au projet 1">
+					<span class="sr-only">Projet 1</span>
+				</a>
+			</li>
+			<li class="main-menu__list-item" data-menuanchor="section2">
+				<a class="main-menu__link" href="#section2" title="Aller au projet 2">
+					<span class="sr-only">Projet 2</span>
+				</a>
+			</li>
+			<li class="main-menu__list-item" data-menuanchor="section3">
+				<a class="main-menu__link" href="#section3" title="Aller au projet 3">
+					<span class="sr-only">Projet 3</span>
+				</a>
+			</li>
+			<li class="main-menu__list-item" data-menuanchor="infos">
+				<a class="main-menu__link" href="#infos" title="Aller à la dernière section">
+					<span class="sr-only">Infos</span>
+				</a>
+			</li>
+		</ul>
+	</nav>
+
+	<main role="main" id="full-page">
+		<section class="section landing active">
+			<div class="container-fluid">
+
+				<div class="landing__content">
+					<figure class="landing__logo">
+							<img class="landing__logo-ghost" src="dist/img/logo-samuel-desbos.svg" alt="logo Samuel Desbos">
+							<div class="landing__logo-s-wrapper">
+								<img class="landing__logo-s" src="dist/img/logo-s.svg" alt="logo Samuel Desbos">
+							</div>
+							<img class="landing__logo-s-dash" src="dist/img/logo-s-dash.svg" alt="logo Samuel Desbos">
+							<div class="landing__logo-d-wrapper">
+								<img class="landing__logo-d" src="dist/img/logo-d.svg" alt="logo Samuel Desbos">
+							</div>
+							<img class="landing__logo-d-dash" src="dist/img/logo-d-dash.svg" alt="logo Samuel Desbos">
+					</figure>
+
+					<h1 class="landing__title title1">
+						<span class="title1__main">Samuel DESBOS</span>
+						<span class="title1__alt">
+							Intégrateur Web, Développeur Front-End
+						</span>
+					</h1>
+				</div>
+
+				<figure class="scroll-indicator" title="Scroller vers le bas">
+					<span class="scroll-indicator__text">scroll</span>
+					<svg class="scroll-indicator__icon">
+						<use xlink:href="#icone-scroll"></use>
+					</svg>
+					<span class="sr-only">Scroller vers le bas pour voir la suite</span>
+				</figure>
+
+			</div>
+		</section>
+
+		<div class="section">
+			<div class="container">
+
+				<article class="project project--left">
+					<div class="project__content">
+						<div class="card card--left card--figure project__figure">
+							<div class="card__border js-parallax" data-parallax-level="4"></div>
+							<div class="card__content project__desc-content js-parallax" data-parallax-level="3">
+								<figure class="card--figure__figure project__figure-figure">
+									<div class="project__figure-img">
+										<img class="js-parallax" data-parallax-level="3.5"
+												 srcset="dist/img/projects/direct-recrutement-400.jpg 400w,
+												 dist/img/projects/direct-recrutement-800.jpg 800w,
+												 dist/img/projects/direct-recrutement-1000.jpg 1000w,
+												 dist/img/projects/direct-recrutement-1200.jpg 1200w,
+												 dist/img/projects/direct-recrutement-1500.jpg 1500w"
+												 sizes="(min-width: 480px) 100vw,
+												 (min-width: 992px) 60vw,
+												 (min-width: 1200px) 70vw,
+												 (min-width: 1500px) 85vw,
+												 100vw"
+												 src="dist/img/projects/direct-recrutement.jpg"
+												 alt="Capture du site Direct Recrutement">
+									</div>
+								</figure>
+							</div>
+						</div>
+						<div class="card card--right card--primary project__desc">
+							<div class="card__border js-parallax" data-parallax-level="2.5"></div>
+							<h2 class="title2 project__title js-parallax" data-parallax-level="2">
+								<span>Direct Recrutement</span>
+							</h2>
+							<div class="project__desc-frame js-parallax" data-parallax-level="1.5">
+								<div class="card__content project__desc-content">
+									<ul class="list-key-value">
+										<li class="list-key-value__item">
+											<span class="list-key-value__key">Client</span>
+											<span class="list-key-value__value">Manpower</span>
+										</li>
+										<li class="list-key-value__item">
+											<span class="list-key-value__key">Prestataire</span>
+											<span class="list-key-value__value">Ippon</span>
+										</li>
+										<li class="list-key-value__item">
+											<span class="list-key-value__key">Type</span>
+											<span class="list-key-value__value">Application B2B de recrutement</span>
+										</li>
+										<li class="list-key-value__item">
+											<span class="list-key-value__key">Technologies</span>
+											<span class="list-key-value__value">Sass, jHipster, Angular 4, Bootstrap 4</span>
+										</li>
+									</ul>
+									<a class="project__link link" href="https://www.direct-recrutement.fr/" title="Aller sur le site (lien externe)">
+										<svg class="link__icon">
+											<use xlink:href="#icone-fleche"></use>
+										</svg>
+										<span class="link__text">https://www.direct-recrutement.fr/</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</article>
+
+			</div>
+		</div>
+
+		<div class="section">
+			<div class="container">
+
+				<article class="project project--right">
+					<div class="project__content">
+						<div class="card card--right card--figure project__figure">
+							<div class="card__border js-parallax" data-parallax-level="4"></div>
+							<div class="card__content project__desc-content js-parallax" data-parallax-level="3">
+								<figure class="card--figure__figure project__figure-figure">
+									<div class="project__figure-img">
+										<img class="js-parallax" data-parallax-level="3.5"
+												 srcset="dist/img/projects/uaf-life-patrimoine-400.jpg 400w,
+												 dist/img/projects/uaf-life-patrimoine-800.jpg 800w,
+												 dist/img/projects/uaf-life-patrimoine-1000.jpg 1000w,
+												 dist/img/projects/uaf-life-patrimoine-1200.jpg 1200w,
+												 dist/img/projects/uaf-life-patrimoine-1500.jpg 1500w"
+												 sizes="(min-width: 480px) 100vw,
+												 (min-width: 992px) 60vw,
+												 (min-width: 1200px) 70vw,
+												 (min-width: 1500px) 85vw,
+												 100vw"
+												 src="dist/img/projects/uaf-life-patrimoine.jpg"
+												 alt="Capture du site Uaf Life Patrimoine">
+									</div>
+								</figure>
+							</div>
+						</div>
+						<div class="card card--left card--primary project__desc">
+							<div class="card__border js-parallax" data-parallax-level="2.5"></div>
+							<h2 class="title2 project__title js-parallax" data-parallax-level="2">
+								<span>UAF Life Patrimoine</span></h2>
+							<div class="project__desc-frame js-parallax" data-parallax-level="1.5">
+								<div class="card__content project__desc-content">
+									<ul class="list-key-value">
+										<li class="list-key-value__item">
+											<span class="list-key-value__key">Client</span>
+											<span class="list-key-value__value">UAF Life Patrimoine</span>
+										</li>
+										<li class="list-key-value__item">
+											<span class="list-key-value__key">Prestataire</span>
+											<span class="list-key-value__value">Sedona</span>
+										</li>
+										<li class="list-key-value__item">
+											<span class="list-key-value__key">Type</span>
+											<span class="list-key-value__value">Portail de 4 applications (1 site public et 3 extranets)</span>
+										</li>
+										<li class="list-key-value__item">
+											<span class="list-key-value__key">Technologies</span>
+											<span class="list-key-value__value">Sass, Liferay 6.2, jQuery, D3.js</span>
+										</li>
+									</ul>
+									<a class="project__link link" href="https://www.uaflife-patrimoine.fr/" title="Aller sur le site (lien externe)">
+										<svg class="link__icon">
+											<use xlink:href="#icone-fleche"></use>
+										</svg>
+										<span class="link__text">https://www.uaflife-patrimoine.fr</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</article>
+
+			</div>
+		</div>
+
+		<div class="section">
+			<div class="container">
+
+				<article class="project project--left">
+					<div class="project__content">
+						<div class="card card--left card--figure project__figure">
+							<div class="card__border js-parallax" data-parallax-level="4"></div>
+							<div class="card__content project__desc-content js-parallax" data-parallax-level="3">
+								<figure class="card--figure__figure project__figure-figure">
+									<div class="project__figure-img">
+										<img class="js-parallax" data-parallax-level="3.5"
+												 srcset="dist/img/projects/historia-400.jpg 400w,
+												 dist/img/projects/historia-800.jpg 800w,
+												 dist/img/projects/historia-1000.jpg 1000w,
+												 dist/img/projects/historia-1200.jpg 1200w,
+												 dist/img/projects/historia-1500.jpg 1500w"
+												 sizes="(min-width: 480px) 100vw,
+												 (min-width: 992px) 60vw,
+												 (min-width: 1200px) 70vw,
+												 (min-width: 1500px) 85vw,
+												 100vw"
+												 src="dist/img/projects/historia-1500.jpg"
+												 alt="Capture du site Historia">
+									</div>
+								</figure>
+							</div>
+						</div>
+						<div class="card card--right card--primary project__desc">
+							<div class="card__border js-parallax" data-parallax-level="2.5"></div>
+							<h2 class="title2 project__title js-parallax" data-parallax-level="2">
+								<span>Historia</span>
+							</h2>
+							<div class="project__desc-frame js-parallax" data-parallax-level="1.5">
+								<div class="card__content project__desc-content">
+									<ul class="list-key-value">
+										<li class="list-key-value__item">
+											<span class="list-key-value__key">Client</span>
+											<span class="list-key-value__value">Sophia Publications</span>
+										</li>
+										<li class="list-key-value__item">
+											<span class="list-key-value__key">Prestataire</span>
+											<span class="list-key-value__value">IpsoSenso</span>
+										</li>
+										<li class="list-key-value__item">
+											<span class="list-key-value__key">Type</span>
+											<span class="list-key-value__value">Portail de sites en marque blanche&nbsp;:
+												Historia, L’histoire, La recherche et Le magazine littéraire</span>
+										</li>
+										<li class="list-key-value__item">
+											<span class="list-key-value__key">Technologies</span>
+											<span class="list-key-value__value">Sass, Drupal 7, jQuery, Bootstrap 3</span>
+										</li>
+									</ul>
+									<a class="project__link link" href="http://www.historia.fr/" title="Aller sur le site (lien externe)">
+										<svg class="link__icon">
+											<use xlink:href="#icone-fleche"></use>
+										</svg>
+										<span class="link__text">http://www.historia.fr/</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</article>
+
+			</div>
+		</div>
+		<div class="section section--infos">
+			<div class="container">
+
+				<article class="infos">
+					<h2 class="title2">
+						<span>D'autres projets à venir&nbsp;!</span>
+					</h2>
+
+					<p>
+						<a class="link" href="https://github.com/samIntegrateur/portfolio" title="Aller sur le site (lien externe)">
+							<svg class="link__icon link__icon--big">
+								<use xlink:href="#icone-github"></use>
+							</svg>
+							<span class="link__text">Ce projet sur Github</span>
+						</a>
+					</p>
+
+				</article>
+
+			</div>
+			<footer role="contentinfo" class="footer">
+				© 2018 - Samuel Desbos
+			</footer>
+		</div>
+	</main>
+
+
+	<script type="text/javascript" src="dist/bundle.js"></script>
+</body>
+</html>

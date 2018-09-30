@@ -1,0 +1,211 @@
+//
+// HEADER
+// App main header
+//
+
+.main-header {
+	position: fixed;
+	z-index: 10;
+	top: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+}
+
+.main-header__container {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+
+	padding: 0;
+
+	@include media-breakpoint-up(lg) {
+		padding: 0;
+	}
+
+}
+
+// MAIN HEADER BRAND
+// Logo and title
+// ----------------------------------------------------------------------------
+.main-header__brand {
+	flex-grow: 0;
+	display: flex;
+	width: 56rem;
+	max-width: 100%;
+	position: relative;
+
+	.js-is-visible & {
+		background: linear-gradient(to right, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 100%);
+
+		@include media-breakpoint-up(md) {
+			background: linear-gradient(to right, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
+		}
+	}
+
+	&:after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+
+		// Default is hidden, make it appear after landing
+		width: 0;
+		border-bottom: 2px solid $white;
+		transition: 500ms width ease-in-out;
+
+		.js-is-visible & {
+			width: 100%;
+		}
+	}
+
+	@include responsive-spacing((padding: normal normal normal extra));
+
+	@include media-breakpoint-down(sm) {
+		padding-left: 1rem;
+	}
+
+	@include media-breakpoint-up(sm) {
+		align-items: flex-end;
+	}
+}
+
+.main-header__logo,
+.title3__main,
+.title3__alt {
+	// Default is hidden, make it appear after landing
+	opacity: 0;
+	transition:
+		500ms transform ease-in-out,
+		500ms opacity ease-in-out;
+
+	.js-is-visible & {
+		opacity: 1;
+	}
+}
+
+.main-header__logo {
+	width: 6rem;
+	min-width: 6rem;
+	margin-right: $tablet-spacing;
+
+	@include media-breakpoint-up(md) {
+		margin-right: $tablet-spacing-big;
+	}
+
+	@include media-breakpoint-up(lg) {
+		margin-right: $desktop-spacing-big;
+	}
+
+	@media (min-width: map_get($grid-breakpoints, 'lg')) and (min-height: map_get($vertical-breakpoints, 'xl')) {
+		width: 10.75rem;
+		min-width: 10.75rem;
+	}
+
+	// Default is hidden, make it appear after landing
+	transform: translateX(-10%);
+	transition:
+		500ms transform ease-in-out,
+		500ms opacity ease-in-out;
+
+	.js-is-visible & {
+		transform: translateX(0);
+	}
+}
+
+.main-header__title {
+
+	white-space: nowrap;
+
+	@include media-breakpoint-down(sm) {
+		position: relative;
+		top: -2px;
+	}
+
+	&:not(:first-child) {
+		margin-top: 0;
+	}
+
+	.title3__main,
+	.title3__alt {
+		display: block;
+
+		// Default is hidden, make it appear after landing
+		transform: translateX(10%);
+
+		.js-is-visible & {
+			transform: translateX(0);
+		}
+	}
+
+	.title3__main {
+		transition-delay: 100ms;
+
+		@include media-breakpoint-down(sm) {
+			font-size: 1.1rem;
+		}
+	}
+
+	.title3__alt {
+
+		@include media-breakpoint-down(sm) {
+			font-size: 0.8rem;
+			line-height: 1;
+
+			span {
+				display: block;
+			}
+		}
+
+	}
+}
+
+// MAIN HEADER PROFIL
+// ----------------------------------------------------------------------------
+.main-header__profile {
+	@include responsive-spacing((padding: normal));
+
+	@include media-breakpoint-down(sm) {
+		padding-right: 1rem;
+		padding-left: 0;
+	}
+}
+
+.main-header__profile-button {
+	@extend %btn-reset;
+	width: $profile-btn-size-sm;
+	height: $profile-btn-size-sm;
+	border: 2px solid $link;
+	transition: opacity 300ms, border-color 300ms, background-color 300ms;
+	opacity: 0;
+
+	&:hover,
+	&:focus {
+		background-color: $link;
+		border-color: black;
+
+		> svg {
+			fill: black;
+		}
+	}
+
+	.js-is-visible & {
+		opacity: 1;
+	}
+
+	.js-layer-is-open & {
+		opacity: 0;
+	}
+
+	> svg {
+		width: 100%;
+		height: 100%;
+		fill: $link;
+		transition: fill 300ms;
+	}
+
+	@include media-breakpoint-up(lg) {
+		width: $profile-btn-size;
+		height: $profile-btn-size;
+	}
+}

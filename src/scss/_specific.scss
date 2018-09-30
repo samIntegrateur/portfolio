@@ -1,0 +1,11 @@
+//
+// SPECIFIC
+// Import all files in /specific
+//
+// Specific means concrete things : projects, documents, ... unlike components which are abstract objects
+// If any of them should be reused in a different context, consider switching it into a component
+//
+
+@import 'specific/landing';
+@import 'specific/projects';
+@import 'specific/profile';

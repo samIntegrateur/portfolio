@@ -1,0 +1,148 @@
+//
+// APP MIXINS
+//
+@import 'grid';
+@import 'breakpoints';
+
+// ARROW
+// Create pure css arrow
+// ----------------------------------------------------------------------------
+@mixin arrow($direction, $size, $color) {
+	width: 0;
+	height: 0;
+	display: inline-block;
+	border: $size solid transparent;
+
+	border-#{$direction}-width: 0;
+
+	@if $direction == bottom {
+		border-top-color: $color;
+	}
+
+	@if $direction == top {
+		border-bottom-color: $color;
+	}
+
+	@if $direction == left {
+		border-right-color: $color;
+	}
+
+	@if $direction == right {
+		border-left-color: $color;
+	}
+}
+
+// ON EVENT
+// Add properties to your element on hover, active, focus
+// ----------------------------------------------------------------------------
+@mixin on-event($self: false) {
+
+	@if $self {
+
+		&,
+		&:hover,
+		&:active,
+		&:focus {
+			@content;
+		}
+	} @else {
+
+		&:hover,
+		&:active,
+		&:focus {
+			@content;
+		}
+	}
+}
+
+// RESPONSIVE SPACING
+// Avoid repeating variable spacing depending on breakpoint
+// Use 'spacing' variables defined in _variables.scss
+//
+// Example :
+//
+// SCSS :
+// .my-class {
+//    @include responsive-spacing((padding : (small normal), margin-top : big));
+// }
+//
+// CSS OUTPUT :
+// .my-class {
+//    padding: 0.75rem 1rem; margin-top: 1.5rem;
+// }
+// @media (min-width: 1200px) {
+//    .my-class {
+//      padding: 0.75rem 1.5rem; margin-top: 2rem;
+//    }
+// }
+//
+// We can use negative value with $negative-value argument but it applies to all values
+// Example :
+//
+// SCSS :
+// .my-class {
+// @include responsive-spacing((margin-top: normal), true);
+//
+// CSS OUTPUT :
+// .my-class {
+//    margin-top: -1rem;
+// }
+// @media (min-width: 1200px) {
+//    .my-class {
+//      margin-top: -1.5rem;
+//    }
+// }
+// ----------------------------------------------------------------------------
+@mixin responsive-spacing($properties, $negative-value: false) {
+
+	// Property/value couples to return
+	$css-result-tablet: ();
+	$css-result-desktop: ();
+
+	// Loop on properties
+	@each $property, $values in $properties {
+
+		// Create var to eventually bind multiple values
+		$tablet-spacing: '';
+		$desktop-spacing: '';
+
+		// Loop on each values for a property
+		@each $value in $values {
+
+			// 'normal' matches 'tablet-spacing/desktop-spacing', otherwise we add a dash
+			$value: if($value == 'normal', '', '-' + $value);
+
+			// Get $value corresponding variables in our $spacings list (cf: _variables.scss)
+			// Ex: 'small' should match 'tablet-spacing-small'
+			$get-tablet-value: map-get($spacings, 'tablet-spacing' + $value);
+			$get-desktop-value: map-get($spacings, 'desktop-spacing' + $value);
+
+			// If argument is true, we want a negative value so we add a dash
+			@if $negative-value {
+				$get-tablet-value: '-' + $get-tablet-value;
+				$get-desktop-value: '-' + $get-desktop-value;
+			}
+
+			// Add them to our local variable
+			$tablet-spacing: $tablet-spacing + $get-tablet-value + ' ';
+			$desktop-spacing: $desktop-spacing + $get-desktop-value + ' ';
+		}
+
+		// Add property/value couple to result
+		$css-result-tablet: map-merge($css-result-tablet, (#{$property} : #{$tablet-spacing}));
+		$css-result-desktop: map-merge($css-result-desktop, (#{$property} : #{$desktop-spacing}));
+	}
+
+	// Results: loop on each property/value couple
+	@each $property, $value in $css-result-tablet {
+		#{$property}: #{$value};
+	}
+
+	// more spacing on defined breakpoint
+	@include media-breakpoint-up(lg) {
+		@each $property, $value in $css-result-desktop {
+			#{$property}: #{$value};
+		}
+	}
+}
+

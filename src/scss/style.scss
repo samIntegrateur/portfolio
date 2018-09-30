@@ -1,0 +1,18 @@
+//
+// STYLE
+// Root of all styles
+//
+
+// Normalize
+@import '../../node_modules/normalize.css/normalize.css';
+
+// Plugins
+@import '../../node_modules/fullpage.js/dist/jquery.fullpage.css';
+
+// App
+@import 'variables';
+@import 'helpers';
+@import 'base';
+@import 'layout';
+@import 'components';
+@import 'specific';

@@ -1,0 +1,47 @@
+//
+// GRID
+// Bootstrap feature
+//
+
+@include make-grid-columns();
+
+.row {
+
+	@include make-row;
+
+	> [class*='col'] {
+		@include make-col-ready;
+	}
+}
+
+// Don't apply default margin and padding here
+ul,
+ol {
+
+	&.row {
+		padding-left: 0;
+
+		> [class*='col'] {
+			margin-bottom: 0;
+		}
+	}
+
+}
+
+// COL-FLEX
+// If children need to be flex too (use case: equal height)
+// NB: col first descendant must take 100% width and be one of the following tags
+// ----------------------------------------------------------------------------
+.col-flex {
+	display: flex;
+	flex-wrap: wrap;
+
+	> div,
+	> a,
+	> span,
+	> table {
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
+}
+

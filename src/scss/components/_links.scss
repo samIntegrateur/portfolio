@@ -1,0 +1,73 @@
+//
+// LINKS
+//
+
+.link {
+	display: inline-flex;
+	align-items: baseline;
+	color: $white;
+	text-decoration: none;
+	transition: color 400ms cubic-bezier(0.77, 0, 0.175, 1);
+
+	&:hover,
+	&:focus {
+		text-decoration: none;
+		color: $white;
+	}
+}
+
+.link__icon {
+	width: 0.9rem;
+	height: 0.9rem;
+	margin-right: 7px;
+	fill: $link;
+}
+
+.link__icon--big {
+	position: relative;
+	top: 2px;
+	width: 1.2rem;
+	height: 1.2rem;
+}
+
+.link__text {
+	text-decoration: none;
+	position: relative;
+	overflow: hidden;
+	z-index: 0;
+	display: inline-block;
+
+	&:before,
+	&:after {
+		content: '';
+		background: $link;
+		display: block;
+		position: absolute;
+		left: 0;
+		width: 100%;
+		transform: translateX(-101%);
+		transition: transform 400ms cubic-bezier(0.77, 0, 0.175, 1);
+	}
+
+	&:before {
+		top: 0;
+		height: 100%;
+		z-index: -1;
+	}
+
+	.link:hover &:before,
+	.link:focus &:before {
+		transform: translateX(101%);
+	}
+
+	&:after {
+		z-index: 0;
+		bottom: 0.1em;
+		height: 1px;
+	}
+
+	.link:hover &:after,
+	.link:focus &:after {
+		transform: translateX(0);
+	}
+}

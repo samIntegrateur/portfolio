@@ -1,0 +1,81 @@
+//
+// ZONES
+// Sections, containers, ...
+// About zoning and spacing
+//
+
+// CONTAINERS
+// - creates responsive content zone
+// - prevents grid system to provoke horizontal scroll (due to negative margin)
+// ----------------------------------------------------------------------------
+.container,
+.container-fluid {
+
+	@include make-container();
+
+	// For small device we break proportion to have more width
+	@include media-breakpoint-down(sm) {
+		padding-left: 1rem;
+		padding-right: 1rem;
+	}
+
+	// Nested container don't need horizontal padding
+	.container,
+	.container-fluid {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+}
+
+.container {
+	@include make-container-max-widths();
+}
+
+// SECTION
+// Added to wrap containers :
+// - add semantic section tag if necessary
+// - create useful distinction for backgrounds (section = all screen width / container = content width)
+// Used for page scroll
+// ----------------------------------------------------------------------------
+.section {
+	// default: transparent (gray on body)
+	background-color: transparent;
+
+	// Prevent 'glitch' on page load before page scroll is started
+	width: 100%;
+	height: 100vh;
+	display: table;
+
+	// Applied only before page scroll is set, then there is fp-tableCell between section and container
+	> .container-fluid {
+		display: table-cell;
+		vertical-align: middle;
+	}
+}
+
+// PARTS
+// Create more space, defined in _placeholders.scss
+// ----------------------------------------------------------------------------
+.part {
+	@extend %part;
+}
+
+.part-big {
+	@extend %part-big;
+}
+
+.part-extra {
+	@extend %part-extra;
+}
+
+.fp-table {
+	overflow: hidden;
+}
+
+.fp-table:not(.landing),
+.fp-tableCell { /* stylelint-disable-line */
+	@include media-breakpoint-down(sm) {
+		height: auto !important;
+	}
+}

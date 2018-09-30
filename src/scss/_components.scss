@@ -1,0 +1,11 @@
+//
+// COMPONENTS
+// Import all files in /components
+//
+// Components means abstract objects : cards, media-object, ... unlike specific which are concrete things
+// The advantage is they are reusable at will without breaking any class name sense
+//
+
+@import 'components/cards';
+@import 'components/lists';
+@import 'components/links';

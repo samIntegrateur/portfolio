@@ -1,0 +1,105 @@
+//
+// BASIC STYLES
+//
+
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
+html {
+	font-family: $font-family-base;
+	font-weight: $font-weight-base;
+	background-color: $bg-base;
+	color: $color-base;
+	line-height: $line-height-base;
+
+	// Increase font size base depending on screen size
+	font-size: $root-font-size-sm;
+
+	@include media-breakpoint-up(md) {
+		font-size: $root-font-size-md;
+	}
+
+	@include media-breakpoint-up(lg) {
+		font-size: $root-font-size-lg;
+	}
+}
+
+figure {
+	margin: 0;
+
+	img {
+		max-width: 100%;
+	}
+}
+
+// no margin on extremities
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+figure {
+
+	&:first-child {
+		margin-top: 0;
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+ul,
+ol {
+	padding-left: 1.3em;
+}
+
+li {
+	@extend %list-item-default-spacing;
+}
+
+ul > li {
+	list-style-type: disc;
+
+	ul > li {
+		list-style-type: circle;
+	}
+}
+
+// common spacing
+p,
+ul,
+ol {
+	@extend %tag-default-spacing;
+}
+
+a {
+	color: $color-base;
+	text-decoration: none;
+
+	@include on-event() {
+		color: $color-base;
+		text-decoration: underline;
+	}
+}
+
+// ACCESSIBILITY
+// ----------------------------------------------------------------------------
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}

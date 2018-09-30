@@ -1,0 +1,90 @@
+//
+// CARDS
+//
+
+
+// DEFAULT CARD
+// ----------------------------------------------------------------------------
+.card {
+	display: block;
+	position: relative;
+}
+
+// border offset
+.card__border {
+
+	@include media-breakpoint-up(md) {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		border: 2px solid $primary;
+	}
+}
+
+// Use another element inside card, can be useful (cf: ratio trick and card__border)
+// ------------------------------------------------
+.card__content {
+	display: block;
+	background-color: $white;
+	@include responsive-spacing((padding: normal));
+}
+
+// MODIFIERS
+// ----------------------------------------------------------------------------
+
+// card--left
+// ------------------------------------------------
+.card--left .card__border {
+	transform: translate($tablet-spacing-big, -$tablet-spacing-big);
+
+	@include media-breakpoint-up(lg) {
+		transform: translate($desktop-spacing-big, -$desktop-spacing-big);
+	}
+}
+
+// card--right
+// ------------------------------------------------
+.card--right .card__border {
+	transform: translate(-$tablet-spacing-big, -$tablet-spacing-big);
+
+	// We can't use responsive spacing for this property
+	@include media-breakpoint-up(lg) {
+		transform: translate(-$desktop-spacing-big, -$desktop-spacing-big);
+	}
+}
+
+// card--primary
+// ------------------------------------------------
+.card--primary {
+	color: $white;
+
+	.card__content {
+		background-color: $primary;
+	}
+
+	.card__border {
+		// Invert border color
+		border-color: $white;
+	}
+}
+
+// card--figure
+// ------------------------------------------------
+.card--figure {
+
+	.card__content {
+		position: relative;
+
+		// Trick to have a 16/9 ratio without knowing width
+		height: 0;
+		padding-top: 56.25%;
+	}
+}
+
+.card--figure__figure {
+	@extend %aspect-ratio-item;
+}
+
