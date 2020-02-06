@@ -73,9 +73,13 @@
 	overflow: hidden;
 }
 
-.fp-table:not(.landing),
-.fp-tableCell { /* stylelint-disable-line */
-	@include media-breakpoint-down(sm) {
-		height: auto !important;
+.fp-responsive {
+
+	.fp-table:not(.landing),
+	.fp-tableCell { /* stylelint-disable-line */
+		@include media-breakpoint-down(sm) {
+			height: auto !important;
+		}
 	}
 }
+

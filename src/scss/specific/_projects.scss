@@ -9,8 +9,10 @@
 .infos {
 	margin: auto;
 
-	@include media-breakpoint-up(md) {
-		padding-top: 7rem;
+	padding-top: 7rem;
+
+	.fp-responsive & {
+		padding-top: 0;
 	}
 
 	@media (min-width: map_get($grid-breakpoints, 'xxl')) and (min-height: map_get($vertical-breakpoints, 'xxl')) {

@@ -7,5 +7,8 @@ module.exports = {
 				rem: false
 			}
 		},
+		'cssnano': {
+			preset: 'default'
+		},
 	},
 };
