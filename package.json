@@ -38,7 +38,7 @@
     "html-loader": "0.5.1",
     "image-webpack-loader": "4.3.0",
     "is-resolvable": "1.0.1",
-    "jquery": "3.4.1",
+    "jquery": "3.5.0",
     "json-stable-stringify-without-jsonify": "1.0.1",
     "levn": "0.3.0",
     "mini-css-extract-plugin": "0.4.3",
